@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-ivory text-charcoal font-sans antialiased;
+    background-color: #F8F6F0;
+    color: #262A26;
+    background-image: none;
+  }
+
+  * { -webkit-tap-highlight-color: transparent; }
+
+  button:focus-visible, a:focus-visible, [role="button"]:focus-visible {
+    outline: 2px solid #8B7358;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F8F6F1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #E5E0D8;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B8A895;
+  }
+}
+
+@layer utilities {
+  .editorial-heading {
+    @apply font-serif tracking-tight text-charcoal;
+  }
+  
+  .editorial-subheading {
+    @apply font-serif italic text-charcoal-600;
+  }
+
+  .border-hairline {
+    border-color: #E5E0D8;
+  }
+
+  /* Eye-catching gold/editorial sheen */
+  .gold-sheen {
+    background: linear-gradient(135deg, #FBF8F2 0%, #F5ECDB 50%, #FAF6EE 100%);
+  }
+
+  .badge-editorial {
+    @apply text-[10px] uppercase font-bold tracking-widest px-2.5 py-0.5 rounded-full border;
+  }
+
+  .badge-gold {
+    @apply badge-editorial bg-[#FAF6EE] text-[#916B27] border-[#E8D9B8];
+  }
+
+  .badge-sage {
+    @apply badge-editorial bg-[#F2F5EF] text-[#556345] border-[#CCD6C3];
+  }
+}
+
+/* Smooth fade-in animation for views and transitions */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s infinite ease-in-out;
+}
+
+/* Glassmorphism/blur subtle effects */
+.editorial-glass {
+  background: rgba(248, 246, 241, 0.88);
+  backdrop-filter: blur(12px);
+}
