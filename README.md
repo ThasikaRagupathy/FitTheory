@@ -1,186 +1,153 @@
-# FitTheory — Your Wardrobe, Reimagined
+FitTheory — Your Wardrobe, Reimagined
+A premium digital wardrobe and visual outfit-planning web application built with React 19, TypeScript, Vite, and Tailwind CSS.
 
-> A digital wardrobe and visual outfit-planning web application built with React 19, TypeScript, Vite, and Tailwind CSS. Embodying a premium, minimal editorial fashion magazine aesthetic.
+FitTheory helps users make more of the clothes they already own. Organize wardrobe items, compose outfits in a visual studio, curate collections, plan looks on a calendar, and explore wardrobe insights through a clean, editorial fashion-tech experience.
+Features
+Overview Dashboard
+- Live metrics for wardrobe items, saved outfits, collections, and planned looks.
+- Curated rule-based outfit suggestions with a shortcut to Outfit Studio.
+- Recently cataloged clothing and upcoming weekly outfit plans.
+- Editorial content about capsule wardrobes and styling with existing pieces.
+My Wardrobe
+- Browse clothing cards with photos, categories, colors, and wear counts.
+- Search by item name, style tags, and notes.
+- Filter by category, season, and color.
+- Sort by recently added, alphabetical order, or most worn.
+- Add, edit, inspect, and delete clothing items.
+- Upload an image or choose a curated image preset.
+- Add season, occasion, color, and styling notes.
+Outfit Studio
+- Build outfits using a visual flat-lay canvas and/or mannequin view.
+- Add, replace, and remove wardrobe items using drag-and-drop or click-to-add.
+- Style outfits with tops, bottoms or dresses, outerwear, shoes, bags, and accessories.
+- View color chips and basic color-harmony suggestions.
+- Name outfits and assign occasions, seasons, tags, and collections.
+- Save and edit outfits.
+- Use Surprise Me for rule-based outfit combinations.
+Collections
+- Organize saved outfits into themed capsules such as Everyday Ease, Work, Reimagined, Weekend Plans, Soft Neutrals, and Evening Edit.
+- Create, edit, and delete collections.
+- View outfits within each collection and add or remove looks.
+Style Calendar
+- Navigate between months and return to today.
+- Assign saved outfits to specific dates.
+- Add occasion labels and notes.
+- Edit or remove plans.
+- Switch between calendar and agenda views.
+- Review upcoming looks for the week.
+Style Insights
+- View wardrobe category distribution and color frequency.
+- Explore most-used and underused clothing pieces.
+- Identify items that are not included in saved outfits.
+- Try transparent, rule-based color combinations.
+Local Data Persistence
+- Keep wardrobe items, outfits, collections, and plans in browser local storage.
+- Start with sample wardrobe data and curated demo outfits.
+- Reset demo data using the app's confirmation flow, if available.
+- Use image fallbacks to prevent broken-image layouts.
+Technology Stack
+Technology	Purpose
+React 19	Component-based UI
+TypeScript	Type safety
+Vite	Development server and production build
+Tailwind CSS	Utility-first styling
+React DnD or equivalent	Outfit composition
+React Router	Navigation between pages
+LocalStorage	Client-side persistence
+Lucide icons	Consistent interface icons
 
----
 
-## ✨ Features & Architecture
+The exact libraries and versions depend on the implementation in the project repository. Check package.json for installed dependencies.
 
-### 1. Overview / Dashboard (`/`)
-- **Live Summary Metrics**: Instant counts of total wardrobe items, saved looks, curated collections, and planned looks for the current week derived dynamically from state.
-- **Outfits to Try**: 3 curated, rule-based combinations with instant "Style in Studio" one-click action.
-- **Recently Cataloged**: High-resolution editorial cards with quick detail inspection.
-- **Weekly Schedule**: Upcoming planned looks linked directly to the calendar.
-- **Editorial Brand Philosophy**: Curated perspective on capsule wardrobes.
+Design System
+FitTheory uses a premium, minimal, editorial fashion aesthetic.
+Token	Hex value
+Ivory background	#F8F6F1
+Warm sand	#E7DED2
+Taupe	#B8A895
+Charcoal	#282724
+Muted sage	#89917A
+White surface	#FFFFFF
+Muted text	#77736C
+Hairline border	#E5E0D8
 
-### 2. My Wardrobe (`/wardrobe`)
-- **Interactive Library**: Cataloged clothing pieces displaying photos, category labels, color chips, and wear counts.
-- **Multi-dimensional Filters**:
-  - Search by piece name, style tags, or notes.
-  - Category pill filter tabs (All, Tops, Bottoms, Dresses, Outerwear, Shoes, Bags, Accessories) with dynamic item count badges.
-  - Seasonality filter (All-season, Spring, Summer, Autumn, Winter).
-  - Tonal color filter.
-  - Sorting (Recently Added, Alphabetical A-Z, Alphabetical Z-A, Most Worn).
-- **Add / Edit Modal**: Form with validation, local image file upload (`FileReader` preview), curated high-fashion image presets, category, colorway, season, and occasion tags.
-- **Detail Panel**: High-resolution view, styling notes, wear count, and list of saved outfits that feature the piece.
 
-### 3. Outfit Studio (`/studio`) — Signature Atelier Feature
-- **Atelier Mannequin Visualizer**:
-  - Full standing tailor's dress-form mannequin with pedestal and soft studio spotlighting.
-  - Layered garment draping:
-    - *Head / Neck*: Accessories (hoop earrings, fringe scarves) with floating luxury tags.
-    - *Shoulders*: Draped outerwear (trench, wool blazer, cardigan).
-    - *Torso*: Top (poplin shirt, ribbed knit) or Full Dress.
-    - *Waist / Hips*: Tailored trousers, straight denim, or bias midi skirt.
-    - *Hands / Arm*: Handbags & shoulder bags.
-    - *Base*: Footwear (loafers, sneakers, strappy sandals).
-- **Flexible Studio View Modes**:
-  - **Flat Lay**: Classic editorial tabletop flat-lay spread.
-  - **Mannequin**: 3D-depth standing mannequin atelier visualizer with interactive droppable regions.
-  - **Dual View**: Real-time side-by-side spread combining tabletop slots and the live dressed mannequin simultaneously.
-- **Drag-and-Drop & Click-to-Add**: Dropping items directly onto mannequin body regions or canvas slots.
-- **"Surprise Me" Curatorial Generator**: Deterministic rule-based formula generator with celebratory champagne & gold confetti burst.
-- **Look Specifications & Color Harmony**:
-  - Live color balance analysis with hex chips and palette harmony notes.
-  - Look title, occasion selector, season selector, style tags.
-  - Assign looks directly to one or more thematic collections.
-  - One-click saved outfit editing and updates.
-
-### 4. Collections (`/collections`)
-- **Editorial Cover Cards**: Themed capsules including *Everyday Ease*, *Work, Reimagined*, *Weekend Plans*, *Soft Neutrals*, and *Evening Edit*.
-- **Capsule Explorer**: Inspect all outfits saved to a collection with piece flat-lays.
-- **Collection Management**: Create new collections, edit titles/descriptions/covers, and toggle outfits in/out of capsules.
-
-### 5. Style Calendar (`/calendar`)
-- **Interactive Month Grid**: Navigate months, return to Today, and view scheduled outfit thumbnails on specific dates.
-- **Date Inspector & Scheduler**: Select any date to view scheduled looks, change outfits, assign occasion labels (e.g. "Creative Review", "Dinner Date"), or add weather notes.
-- **Agenda / List Mode**: Switch between 7-column calendar grid and a clean agenda list view (optimized for mobile).
-- **This Week Summary**: Dedicated roster of upcoming outfits for the current week.
-
-### 6. Style Insights (`/insights`)
-- **Transparent Wardrobe Calculations**:
-  - Category distribution with progress bars and percentage shares.
-  - Most prominent tones and colorway frequency.
-  - Most integrated pieces (by wear count).
-  - *Underused Pieces*: Explicit calculation of items appearing in 0 saved looks with quick "Try in Studio" buttons.
-  - *Color Harmony Formulas*: Transparent rules (e.g. *Tonal Warm Neutrals*, *Sage & Ivory Contrast*, *Architectural Noir & Gold*) with one-click combination staging.
-
-### 7. LocalStorage Persistence & Resilience
-- Persistent storage for wardrobe library, outfits, collections, and calendar plans.
-- Initial seed data (20 realistic pieces, 5 collections, 6 outfits, and calendar schedule) automatically populated on first run.
-- **Reset Demo Data** action with confirmation dialog.
-- Graceful SVG fallback images preventing broken image states.
-
----
-
-## 🎨 Visual System & Brand Palette
-
-- **Ivory Background**: `#F8F6F1`
-- **Warm Sand**: `#E7DED2`
-- **Taupe**: `#B8A895`
-- **Charcoal**: `#282724`
-- **Muted Sage**: `#89917A`
-- **White Surface**: `#FFFFFF`
-- **Muted Text**: `#77736C`
-- **Hairline Border**: `#E5E0D8`
-- **Typography**: Editorial serif (*Playfair Display*) paired with clean geometric sans-serif (*Plus Jakarta Sans* / *Inter*).
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v18+ recommended, verified on v25.2.0)
-- npm (v9+ recommended, verified on v11.6.2)
-
-### Installation & Run
-
-1. **Clone or enter the project directory**:
-   ```bash
-   cd d:\FitTheory
-   ```
-
-2. **Install dependencies**:
-   ```bash
+Editorial serif headings are paired with clean sans-serif interface typography. The layout prioritizes clothing photography, generous whitespace, subtle borders, restrained motion, accessibility, and responsive behavior.
+Getting Started
+Prerequisites
+- Node.js 18 or later recommended.
+- npm 9 or later recommended.
+Installation
+1. Clone the repository or open the project folder.
+   git clone <your-repository-url>
+   cd FitTheory
+   If the project already exists locally, simply open its directory in your terminal.
+2. Install dependencies.
    npm install
-   ```
-
-3. **Start the development server**:
-   ```bash
+3. Start the development server.
    npm run dev
-   ```
-   The application will be live at `http://localhost:3000/`.
-
-4. **Build for production**:
-   ```bash
-   npm run build
-   ```
-   Outputs optimized static assets to `dist/`.
-
-5. **Preview production build**:
-   ```bash
-   npm run preview
-   ```
-
----
-
-## 📁 Project Structure
-
-```text
+4. Open the local URL printed in your terminal. Vite commonly uses http://localhost:5173/; the configured port may differ.
+Production Build
+npm run build
+Preview the production build locally:
+npm run preview
+Suggested Project Structure
+The actual files may differ depending on the implementation.
 src/
 ├── types/
-│   └── index.ts                 # TypeScript types (ClothingItem, Outfit, Collection, Plan, etc.)
+│   └── index.ts
 ├── data/
-│   ├── sampleWardrobe.ts        # 20 curated sample pieces with realistic imagery
-│   ├── sampleOutfits.ts         # Sample outfits connecting items and capsules
-│   ├── sampleCollections.ts     # Curated collections
-│   └── samplePlans.ts           # Dynamic calendar plans
+│   ├── sampleWardrobe.ts
+│   ├── sampleOutfits.ts
+│   ├── sampleCollections.ts
+│   └── samplePlans.ts
 ├── context/
-│   └── WardrobeContext.tsx      # Central state, localStorage sync, actions, toasts
+│   └── WardrobeContext.tsx
 ├── utils/
-│   ├── dates.ts                 # Calendar calculations, formatting, week bounds
-│   ├── colorMatching.ts         # Color palette mapping, harmony rules, analysis
-│   ├── outfitSuggestions.ts     # Transparent rule-based styling algorithms
-│   └── imageFallback.ts         # Graceful SVG placeholder generator
+│   ├── dates.ts
+│   ├── colorMatching.ts
+│   ├── outfitSuggestions.ts
+│   └── imageFallback.ts
 ├── components/
 │   ├── layout/
-│   │   ├── AppShell.tsx         # Responsive application shell
-│   │   ├── Sidebar.tsx          # Editorial navigation sidebar
-│   │   ├── Topbar.tsx           # Breadcrumb, actions, and global Add Item
-│   │   └── MobileNav.tsx        # Mobile drawer and fixed bottom bar
 │   ├── ui/
-│   │   ├── Modal.tsx            # Accessible modal dialog with backdrop
-│   │   ├── ConfirmDialog.tsx    # Confirmation dialog for critical actions
-│   │   ├── Toast.tsx            # Feedback toast notification stack
-│   │   └── EmptyState.tsx       # Graceful empty state illustration
 │   ├── wardrobe/
-│   │   ├── ClothingCard.tsx     # Editorial card with photo, badges, and quick actions
-│   │   ├── ClothingGrid.tsx     # Wardrobe library view with search, filter, and sort
-│   │   ├── ClothingFilters.tsx  # Filter controls and category pill tabs
-│   │   ├── ClothingFormModal.tsx# Add/edit form with file upload and presets
-│   │   └── ClothingDetailModal.tsx # Item inspector, wear count, and matching outfits
 │   ├── studio/
-│   │   ├── OutfitStudio.tsx     # Master 3-column / responsive studio container
-│   │   ├── OutfitCanvas.tsx     # Flat-lay tabletop mood board
-│   │   ├── OutfitSlot.tsx       # Drag-and-drop droppable slot
-│   │   ├── WardrobePicker.tsx   # Side panel with draggable wardrobe cards
-│   │   └── OutfitSummaryPanel.tsx # Look title, tags, color balance, collections, save
 │   ├── dashboard/
-│   │   └── Dashboard.tsx        # Overview with live counts and curated formulas
 │   ├── collections/
-│   │   ├── CollectionsView.tsx  # Thematic capsules overview
-│   │   ├── CollectionDetailModal.tsx # Capsule outfit explorer and management
-│   │   └── NewCollectionModal.tsx # Create/edit collection modal
 │   ├── calendar/
-│   │   ├── CalendarView.tsx     # Style calendar with agenda switch and week roster
-│   │   ├── MonthGrid.tsx        # 7-day monthly interactive grid
-│   │   └── PlanDetailModal.tsx  # Schedule and modify planned outfits
 │   └── insights/
-│       └── InsightsView.tsx     # Category charts, color palettes, underused pieces
 ├── styles/
-│   └── index.css                # Tailwind directives and editorial typography
-├── App.tsx                      # Root component
-└── main.tsx                     # React 19 entry point
-```
-#   F i t T h e o r y  
- 
+│   └── index.css
+├── App.tsx
+└── main.tsx
+Data and Privacy
+- The prototype is designed to work without a required backend.
+- Wardrobe data is stored in browser local storage when persistence is implemented.
+- Local storage is specific to the browser and device; it does not automatically sync across devices.
+- Clearing browser storage may remove locally saved app data.
+- Avoid uploading sensitive personal images to shared or public environments.
+- If a backend is added later, review authentication, authorization, image storage, and database security before production use.
+Scope and Limitations
+- Outfit suggestions are rule-based and are not presented as AI-generated advice.
+- Style insights are calculated from the data available in the application.
+- Local storage is suitable for a prototype but is not a replacement for a secure, multi-user backend.
+- Background removal, live weather integration, or automatic image analysis require additional implementation if not already present.
+- Drag-and-drop should also support click-to-add interactions for accessibility and touch devices.
+Roadmap
+- [ ] Complete responsive wardrobe management.
+- [ ] Refine the Outfit Studio flat-lay and mannequin experiences.
+- [ ] Improve outfit suggestions and color coordination.
+- [ ] Complete collections and calendar planning flows.
+- [ ] Add automated tests for key interactions.
+- [ ] Improve accessibility and keyboard support.
+- [ ] Add optional authentication and cloud synchronization.
+- [ ] Deploy the application and publish a portfolio case study.
+Contributing
+1. Create a feature branch.
+2. Make focused changes that match the existing design system.
+3. Run the production build and test affected interactions.
+4. Submit a pull request with a clear summary and screenshots when relevant.
+License
+Choose and add a license before distributing this project publicly. If this is a personal portfolio project, specify your chosen license in a LICENSE file.
+FitTheory — Your style. Your wardrobe. Your rules.
